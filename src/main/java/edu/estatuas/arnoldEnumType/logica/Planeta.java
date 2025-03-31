@@ -18,7 +18,13 @@ public enum Planeta {
         this.radius = radius;
     }
 
-    
+    public double getMasa(){
+        return mass;
+    }
+
+    public double getRadio(){
+        return radius;
+    }
 }
 
 

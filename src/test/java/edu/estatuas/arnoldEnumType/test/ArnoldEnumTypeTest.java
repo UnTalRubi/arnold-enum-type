@@ -36,6 +36,31 @@ public class ArnoldEnumTypeTest {
 		assertThat(planeta.toString()).isEqualToIgnoringCase("MERCURY");
 		assertThat(planeta.equals(Planeta.MERCURY)).isTrue();
 		assertThat(Planeta.values()[0]).isEqualTo(planeta);
-		
 		}
+
+	@Test
+	public void PlanetaGetMasaTest() {
+		Planeta planeta = Planeta.MERCURY;
+		assertThat(planeta.getMasa()).isEqualTo(3.303e+23);
+	}
+
+	@Test
+	public void PlanetaGetRadioTest() {
+		Planeta planeta = Planeta.MERCURY;
+		assertThat(planeta.getRadio()).isEqualTo(2.4397e+6);
+	}
+
+	@Test
+	public void PlanetaNamesIteratorTest() {
+		for (Planeta planeta : Planeta.values()) {
+			assertThat(planeta.name()).isIn(planetas);
+		}
+	}
+
+	@Test
+	public void PesoSuperficieMercurioTest() {
+		Planeta planeta = Planeta.MERCURY;
+		double pesoHumano = 175;
+		assertEquals(66.107583, planeta.pesoSuperficie(pesoHumano), 0.001);
+	}
 }
