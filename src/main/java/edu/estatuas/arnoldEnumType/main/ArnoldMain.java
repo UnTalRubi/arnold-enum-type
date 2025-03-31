@@ -1,10 +1,11 @@
 package edu.estatuas.arnoldEnumType.main;
 
+import edu.estatuas.arnoldEnumType.logica.*;
 
 public class ArnoldMain 
 {
     public static void main(String[] args) {
-        
+        /*
         double peso = 1.0; // kg
         
         for(Planeta planeta : Planeta.values()){
@@ -20,5 +21,6 @@ public class ArnoldMain
         for(Planeta planeta: Planeta.getGigantesGaseosos()){
             System.out.printf("Your weight on %s is %f N%n", planeta.name(), planeta.pesoSuperficie(peso));
         }
+            */
     }
 }

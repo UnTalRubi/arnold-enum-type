@@ -3,7 +3,9 @@ package edu.estatuas.arnoldEnumType.test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import edu.estatuas.arnoldEnumType.logica.*;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 public class ArnoldEnumTypeTest {
 
@@ -20,7 +22,7 @@ public class ArnoldEnumTypeTest {
 		assertThat(planetasIncluidos).isEqualTo(Planeta.values().length);
 		assertThat(planetas).doesNotContainNull();
 	}
-
+	
 	@Test
 	public void PlanetaConstructorTest() {
 		// me aseguro de que los metodos de la api
@@ -34,5 +36,6 @@ public class ArnoldEnumTypeTest {
 		assertThat(planeta.toString()).isEqualToIgnoringCase("MERCURY");
 		assertThat(planeta.equals(Planeta.MERCURY)).isTrue();
 		assertThat(Planeta.values()[0]).isEqualTo(planeta);
-	}
+		
+		}
 }
