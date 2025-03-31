@@ -25,6 +25,10 @@ public enum Planeta {
     public double getRadio(){
         return radius;
     }
+
+    public double pesoSuperficie(double pesoHumano){
+        return (pesoHumano/mass);
+    }
 }
 
 
