@@ -9,9 +9,9 @@ import org.junit.Test;
 
 public class ArnoldEnumTypeTest {
 
-    public static String[] planetas;
+	public static String[] planetas;
 
-    @BeforeClass
+	@BeforeClass
 	public static void CreacionArrayPlanetasSetup() {
 		planetas = new String[8];
 		int planetasIncluidos = 0;
@@ -22,7 +22,7 @@ public class ArnoldEnumTypeTest {
 		assertThat(planetasIncluidos).isEqualTo(Planeta.values().length);
 		assertThat(planetas).doesNotContainNull();
 	}
-	
+
 	@Test
 	public void PlanetaConstructorTest() {
 		// me aseguro de que los metodos de la api
@@ -36,7 +36,7 @@ public class ArnoldEnumTypeTest {
 		assertThat(planeta.toString()).isEqualToIgnoringCase("MERCURY");
 		assertThat(planeta.equals(Planeta.MERCURY)).isTrue();
 		assertThat(Planeta.values()[0]).isEqualTo(planeta);
-		}
+	}
 
 	@Test
 	public void PlanetaGetMasaTest() {
