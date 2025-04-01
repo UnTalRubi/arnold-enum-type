@@ -3,13 +3,15 @@ package edu.estatuas.arnoldEnumType.test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import edu.estatuas.arnoldEnumType.logica.*;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 public class ArnoldEnumTypeTest {
 
-    public static String[] planetas;
+	public static String[] planetas;
 
-    @BeforeClass
+	@BeforeClass
 	public static void CreacionArrayPlanetasSetup() {
 		planetas = new String[8];
 		int planetasIncluidos = 0;
@@ -34,5 +36,69 @@ public class ArnoldEnumTypeTest {
 		assertThat(planeta.toString()).isEqualToIgnoringCase("MERCURY");
 		assertThat(planeta.equals(Planeta.MERCURY)).isTrue();
 		assertThat(Planeta.values()[0]).isEqualTo(planeta);
+	}
+
+	@Test
+	public void PlanetaGetMasaTest() {
+		Planeta planeta = Planeta.MERCURY;
+		assertThat(planeta.getMasa()).isEqualTo(3.303e+23);
+	}
+
+	@Test
+	public void PlanetaGetRadioTest() {
+		Planeta planeta = Planeta.MERCURY;
+		assertThat(planeta.getRadio()).isEqualTo(2.4397e+6);
+	}
+
+	@Test
+	public void PlanetaNamesIteratorTest() {
+		for (Planeta planeta : Planeta.values()) {
+			assertThat(planeta.name()).isIn(planetas);
+		}
+	}
+
+	@Test
+	public void PesoSuperficieMercurioTest() {
+		Planeta planeta = Planeta.MERCURY;
+		double pesoHumano = 175;
+		assertEquals(66.107583, planeta.pesoSuperficie(pesoHumano), 0.001);
+	}
+
+	@Test
+	public void ArrayPlanetasTerrestresTest() {
+
+		String[] planetasTerrestres = new String[4];
+		int planetasIncluidos = 0;
+
+		for (int i = Planeta.MERCURY.ordinal(); i < Planeta.JUPITER.ordinal(); i++) {
+			planetasTerrestres[i] = Planeta.values()[i].name();
+			planetasIncluidos += 1;
+		}
+		assertThat(planetasIncluidos).isEqualTo(4);
+		assertThat(planetas).doesNotContainNull();
+
+		for (Planeta planeta : Planeta.getPlanetasTerrestres()) {
+			assertThat(planeta.name()).isIn(planetasTerrestres);
+		}
+	}
+
+	@Test
+	public void ArrayGigantesGaseosos() {
+
+		String[] gigantesGaseosos = new String[4];
+		int planetasIncluidos = 0;
+
+		byte index = 0;
+		for (int i = Planeta.JUPITER.ordinal(); i <= Planeta.NEPTUNE.ordinal(); i++) {
+			gigantesGaseosos[index] = Planeta.values()[i].name();
+			planetasIncluidos += 1;
+			index += 1;
+		}
+		assertThat(planetasIncluidos).isEqualTo(4);
+		assertThat(planetas).doesNotContainNull();
+
+		for (Planeta planeta : Planeta.getGigantesGaseosos()) {
+			assertThat(planeta.name()).isIn(gigantesGaseosos);
+		}
 	}
 }
